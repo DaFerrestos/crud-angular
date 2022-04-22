@@ -8,7 +8,7 @@ import { delay, first, tap } from 'rxjs';
 })
 export class ProdutosService {
 
-  private readonly API = '/assets/produtos.json';
+  private readonly API = '/assets/aprodutos.json';
 
 
   constructor(private httpClient: HttpClient) { } //aqui se dá a injeção de dependência
