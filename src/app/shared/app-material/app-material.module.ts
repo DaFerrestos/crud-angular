@@ -3,6 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -11,7 +12,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   MatCardModule,
   MatTableModule,
   MatToolbarModule,
-  MatIconModule
+  MatIconModule,
+  MatProgressSpinnerModule
  ],
 })
 export class AppMaterialModule { }

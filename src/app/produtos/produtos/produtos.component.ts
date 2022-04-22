@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { ProdutosService } from './../services/produtos.service';
 import { Produto } from './../model/produto';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-produtos',
@@ -10,13 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProdutosComponent implements OnInit {
 
-  produtos: Produto[] = [
-    {_id: 1,
-    nome: "Camiseta Básica",
-    preco: 22.90,
-    categoria: "Roupas",
-    disponibilidade: true,}
-  ];
+  produtos$: Observable <Produto[]>;
   displayedColumns = ['nome', 'preco', 'categoria'];
 
   //produtosService: ProdutosService;
@@ -24,7 +18,9 @@ export class ProdutosComponent implements OnInit {
   constructor(private produtosService: ProdutosService) {
     //segunda forma possível de inicialização: this.produtos = [];
     //this.produtosService = new ProdutosService();
-    this.produtos = this.produtosService.list(); //essa inicialização pode ocorrer tanto no construtor quanto no OnInit do projeto, a depender de gosto pessoal.
+    //essa inicialização pode ocorrer tanto no construtor quanto no OnInit do projeto, a depender de gosto pessoal.
+    
+    this.produtos$ = this.produtosService.list();
   }
 
   ngOnInit(): void {
