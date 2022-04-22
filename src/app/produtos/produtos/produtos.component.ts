@@ -1,3 +1,5 @@
+import { HttpClient } from '@angular/common/http';
+import { ProdutosService } from './../services/produtos.service';
 import { Produto } from './../model/produto';
 import { Component, OnInit } from '@angular/core';
 
@@ -17,8 +19,12 @@ export class ProdutosComponent implements OnInit {
   ];
   displayedColumns = ['nome', 'preco', 'categoria'];
 
-  constructor() {
+  //produtosService: ProdutosService;
+
+  constructor(private produtosService: ProdutosService) {
     //segunda forma possível de inicialização: this.produtos = [];
+    //this.produtosService = new ProdutosService();
+    this.produtos = this.produtosService.list(); //essa inicialização pode ocorrer tanto no construtor quanto no OnInit do projeto, a depender de gosto pessoal.
   }
 
   ngOnInit(): void {
